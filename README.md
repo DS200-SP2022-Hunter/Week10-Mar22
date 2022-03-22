@@ -1,5 +1,5 @@
 # Lab Assignment 09, Due on [Canvas](https://psu.instructure.com/courses/2174978/modules/items/35174873), Mar. 30 at 11:59pm
-## What does the distribution of the sample mean look like when the population is heavily skewed?
+## What does the distribution of the sample mean look like when the population is skewed?
 
 The main objective of today's lab is to use python tools to understand and illustrate how a sample mean behaves for various sample sizes.
 
@@ -14,8 +14,17 @@ flights = flights.select('AIR_TIME')
 
 2. Delete the `AIR_TIME` values that equal `nan` (which means "not a number") using this code:
 
+to be continued
 
+3. Use the `num_rows` method to find the number of observations in the AirTime dataset, then create a histogram of the data.  Your histogram should show that the dataset is skewed toward larger times.
 
+4. Use the `simulate_sample_mean` function from [Section 15.5](https://inferentialthinking.com/chapters/14/5/Variability_of_the_Sample_Mean.html) to generate a histogram of sample means from 10,000 samples of size n=1 from `AIR_TIME`.  What is the shape of the histogram?  Is this what you expected, and why?
+
+5. Now repeat step 4, including answering the questions, using n=5 and n=100.
+
+6. In this case, we are sampling from a population that is entirely known to us.  Therefore, we can calculate the exact value of the population standard deviation.  Find this SD, then calculate the SD of sample means from parts 4 and 5 using the information in Section 14.5.2.
+
+to be continued
 
 9. _(Optional, for an extra point):_ In Section 14.x, roulette.  How many games of the customer betting on red are necessary in a given day for the casino to make money with probability 99%?  
 
