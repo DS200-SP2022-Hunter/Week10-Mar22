@@ -13,21 +13,22 @@ flights = flights.select('AIR_TIME')
 ```
 
 2. Delete the `AIR_TIME` values that equal `nan` (which means "not a number") using this code:
+```
+airtimes = np.array(flights.column('AIR_TIME')) # Create a np.array from the AIR_TIME column
+airtimes = airtimes[~np.isnan(airtimes)] # Get rid of all nan entries using np.isnan 
+airtimes = Table().with_column('AirTime', airtimes) # Put the modified array back into a Table
+```
 
-to be continued
+3. Use the `num_rows` method to find the number of observations in the `airtimes` dataset, then create a histogram of the data.  Your histogram should show that the dataset is skewed toward larger times.  Verify directly that the mean is larger than the median.
 
-3. Use the `num_rows` method to find the number of observations in the AirTime dataset, then create a histogram of the data.  Your histogram should show that the dataset is skewed toward larger times.
-
-4. Use the `simulate_sample_mean` function from [Section 15.5](https://inferentialthinking.com/chapters/14/5/Variability_of_the_Sample_Mean.html) to generate a histogram of sample means from 10,000 samples of size n=1 from `AIR_TIME`.  What is the shape of the histogram?  Is this what you expected, and why?
+4. Use the `simulate_sample_mean` function from [Section 14.5](https://inferentialthinking.com/chapters/14/5/Variability_of_the_Sample_Mean.html) to generate a histogram of sample means from 10,000 samples of size n=1 from `AIR_TIME`.  What is the shape of the histogram?  Is this what you expected, and why? Explain your answers in a text box.
 
 5. Now repeat step 4, including answering the questions, using n=5 and n=100.
 
-6. In this case, we are sampling from a population that is entirely known to us.  Therefore, we can calculate the exact value of the population standard deviation.  Find this SD, then calculate the SD of sample means from parts 4 and 5 using the information in Section 14.5.2.
+6. In this case, we are sampling from a population that is entirely known to us.  Therefore, we can calculate the exact value of the population standard deviation.  Find this SD, then calculate the SD of sample means from steps 4 and 5 using the information in Section 14.5.2.  Summarize these values side by side next to the SDs of sample means that were measured in the simulations in steps 4 and 5.  (The values should be very close.  This comparison is similar to the SD comparison in Section 14.5.1
 
-to be continued
+7. _(Optional, for an extra point):_ Section 14.4.1 analyzes the net gain in roulette if the player bets on red.  Suppose you work for the casino.  If you have 400 people play roulette and bet on red each day, what is the probability that the casino loses money on these players that day?  Find a number of players, n, so that the probability of the casino losing money on a given day drops to about 1% and explain how you found this n.
 
-9. _(Optional, for an extra point):_ In Section 14.x, roulette.  How many games of the customer betting on red are necessary in a given day for the casino to make money with probability 99%?  
-
-10.  Finally, make sure that your Jupyter notebook only includes code and text that is relevant to this assignment.  For instance, if you have been completing this assignment by editing the original code from Section 13.2, make sure to delete the material that isn't relevant before turning in your work.
+8.  Finally, make sure that your Jupyter notebook only includes code and text that is relevant to this assignment.  For instance, if you have been completing this assignment by editing the original code from Section 13.2, make sure to delete the material that isn't relevant before turning in your work.
 
 When you've completed this, you should select "Print" from the File menu, then save to pdf using this option.  The pdf file that you create in this way is the file that you should upload to Canvas for grading.  We have found that if you can select the "A3" paper size from the advanced options, this seems to solve the problems that are sometimes encountered in this step.
